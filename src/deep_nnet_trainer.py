@@ -1,9 +1,5 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-"""
-青嶋さん作成のDeepLearningのネットワーク生成モジュールを応用して、前処理結果を受け取れるようにマージした。
-"""
-
 import tensorflow as tf
 import sys
 from functools import reduce
@@ -48,7 +44,7 @@ def train(x, y, hidden_neuron_list, ckpt=None, alpha=1.0, keep_prob=1.0, n_train
 
     # Create model
     predicted_y, weights, activations, biases = deep_nnet_model.create_deep_nnet(x_ph, y_ph, hidden_neuron_list, keep_prob=keep_prob, random_seed=random_seed)
-    
+
     # Create loss & optimizer
     w_d = sum(map(tf.nn.l2_loss, weights))
     loss = tf.nn.l2_loss(tf.subtract(predicted_y, y_ph)) + alpha*w_d

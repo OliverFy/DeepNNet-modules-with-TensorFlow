@@ -24,10 +24,8 @@ def get_LRP(x, ckpt, method=None):
 
     return np.array(results)
 
-def _get_LRP(val_activations, val_weights, sample_index=0, eps=1e-10, method=None): #☆中川さんに確認
-    # sample_index=0
+def _get_LRP(val_activations, val_weights, sample_index=0, eps=1e-10, method=None):
     for n_layer in range(len(val_activations)):
-        ## n_layer=2
         if n_layer==0:
             x_i = val_activations[n_layer][sample_index]
             R_i = x_i
